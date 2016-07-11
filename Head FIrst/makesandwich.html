@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Generate Sandwhich</title>
+<style>
+	body, button { margin: 10px; }
+	img {margin: 20px; }
+	p { padding: 10px; }
+</style>
+
+</head>
+<body>
+	<img id="sando" src="sando1.jpg">
+	<br />
+	<button id="myButton">Make Sandwich</button>
+	<button id= "Drink">Drink order</button>
+
+
+	<p id="message">Orders Go Here: </p>
+	<p id= "order1">Cloud:  </p>
+	<p id= "order2">Boudsady: </p>
+	<p id= "order3">Kaser: </p>
+	<p id= "order4">Bahx: </p>
+
+	<button id="reset">Reload</button>
+	<p id=""> The reload button will reset and reload the page.</p>
+
+<script>
+function Sandwich(cheese, bread, meat, lettuce, vegetables, other) {
+					this.cheese = cheese;
+					this.bread = bread;
+					this.meat = meat;
+					this.lettuce = lettuce;
+					this.vegetables = vegetables;
+					this.other = other;		
+}
+
+function Drinks(Brand, Size) {
+	this.Brand = Brand;
+	this.Size = Size;
+}
+
+var sandwichObject = {
+cheeseChoice: [],
+breadChoice: [],
+meatChoice: [],
+lettuceChoice: [],
+vegetableChoice: [],
+otherCoice: []
+}
+
+var sandwichOptions = [ ["testC", "testC2"], ["TestB", "testB2"]
+]
+
+console.log(sandwichOptions[0]);
+console.log(sandwichOptions[0][0]);
+
+
+
+
+var drinkChoice = [];
+var sizeChoice = [];
+
+var cloudwich = new Sandwich(" Provolone", " Italian", " Chicken", " Romain", " Tomato", " Avacodo");
+var boudsadywich = new Sandwich(" fresh Motzerella", " Sour Dough", " salami", " Romain", " Tomato", " vinagar");
+var kaserwich = new Sandwich(" Pepper Jack", " Wheat", " Pastrami", " Kale", " Tomato", " bacon");
+var bahxwich = new Sandwich(" Provolone", " Dutch Crunch", " salami Pepperoni meat ball Lingucia", " spinch", " Tomatos", " Mustard");
+var sandwichs = [cloudwich, boudsadywich, kaserwich, bahxwich];
+
+var drinkoreder1 = new Drinks("Sprite", "Small");
+var drinkoreder2 = new Drinks("Coke", "Large");
+var drinkoreder3 = new Drinks("Tea", "Medium");
+
+var drinkorders = [drinkoreder1, drinkoreder2, drinkoreder3];
+
+var image1 = document.getElementById("sando")
+var button = document.getElementById("myButton");
+var buttonD = document.getElementById("Drink");
+var buttonR = document.getElementById("reset");	
+
+
+button.onclick = function() {
+			
+			var p1 = document.getElementById("order1");
+			p1.innerHTML = ("Cloud: " + JSON.stringify(sandwichs[0]));
+			
+			var p2 = document.getElementById("order2");
+			p2.innerHTML =  ("Boudsady: " + JSON.stringify(sandwichs[1]));
+
+			var p3 = document.getElementById("order3");
+			p3.innerHTML = ("Kaser: " + JSON.stringify(sandwichs[2]));
+
+			var p3 = document.getElementById("order4");
+			p3.innerHTML = ("Bahx: " + JSON.stringify(sandwichs[3]));
+				
+}
+buttonD.onclick = function(){
+	var p1 = document.getElementById("order1");
+			p1.innerHTML = ("Cloud: " + "Drink: " + JSON.stringify(drinkorders[0]));
+
+	var p2 = document.getElementById("order2");
+			p2.innerHTML =  ("Boudsady: " + "Drink: " + JSON.stringify(drinkorders[1]));
+
+	var p3 = document.getElementById("order3");
+			p3.innerHTML = ("Kaser: " + "Drinks: " + JSON.stringify(drinkorders[2]));
+}
+
+buttonR.onclick = function() {
+	alert("Reloading Page!")
+	location.reload();
+}
+
+</script>
+
+</body>
+</html>
+
+			
+			<!-- document.write(JSON.stringify(kaserwich, null, 4));
+			*/
+
+			/*
+			var message = document.write(Object.getOwnPropertyNames(kaserwich));
+			var div = document.getElementById("message");
+			*/
+			
+			//document.getElementById("myButton").onclick = function () {
+			//alert("Kaser!!!"); -->
